@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<wizard version="1" kind="project"
+        class="qt4project" firstpage="10"
+        id="A.EthoStudioPlugin" category="B.EthoStduioProjects">
+    <icon>process2.png</icon>
+    <description>Creates a new ethostudio plugin library.</description>
+    <displayname>EthoStudio Plugin Library</displayname>
+    <displaycategory>EthoStudio Projects</displaycategory>
+    <files>
+
+        <file source="pluginlib.cpp" target="%ProjectName:l%.cpp" openeditor="true"/>
+	<file source="pluginlib.h" target="%ProjectName:l%.h" openeditor="true"/>
+	<file source="pluginlib_global.h" target="%ProjectName:l%_global.h" openeditor="true"/>
+        <file source="project.pro" target="%ProjectName:c%.pro" openproject="true"/>
+    </files>
+    <!-- Create a 2nd wizard page with parameters -->
+
+    <fieldpagetitle>Settings</fieldpagetitle>
+    <fieldpagetitle xml:lang="ru">Настройки модуля</fieldpagetitle>
+    <fields>
+	<field mandatory="true" name="EthoStudioDir">
+		<fieldcontrol class="Utils::PathChooser" defaulttext="" />
+		<fielddescription>EthoStudio directory:</fielddescription>
+	</field>
+	<field name="Useopencv">
+            <fieldcontrol class="QCheckBox"/>
+            <fielddescription>Use opencv</fielddescription>
+	    <fielddescription xml:lang="ru">Использовать opencv</fielddescription>
+        </field>
+	<field name="Usekinect">
+            <fieldcontrol class="QCheckBox"/>
+            <fielddescription>Use kinect (libfreenect)</fielddescription>
+	    <fielddescription xml:lang="ru">Использовать кинект</fielddescription>
+        </field>
+    </fields>
+</wizard>

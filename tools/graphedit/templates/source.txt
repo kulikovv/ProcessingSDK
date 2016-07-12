@@ -1,0 +1,43 @@
+#include <synch/synchfactory.h>
+#include <base/graph.h>
+
+using namespace io;
+using namespace base;
+
+
+%ClassName:c%::%ClassName:c%()
+{
+
+	_graph = SynchFactory::createSynch();
+
+    	%LoadLibs%
+
+    	%CreateNodes%
+
+    	%BuildConnections%
+}
+
+%ClassName:c%::~%ClassName:c%()
+{
+	if(0!=_graph)
+	{
+		delete _graph;
+		_graph = 0;
+	}
+}
+
+void %ClassName:c%::start()
+{
+	if(0!=_graph)
+	{
+		_graph->start();
+	}
+}
+
+void %ClassName:c%::stop()
+{
+	if(0!=_graph)
+	{
+		_graph->stop();
+	}
+}

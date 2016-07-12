@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<wizard version="1" kind="class" id="A.SourceNode" category="B.EthoStudioClasses">
+    <description>Creates a OutputNode implementation.</description>
+    <description xml:lang="ru">Создать хранилище данных имплементирующий OutputNode.</description>
+    <icon>output.png</icon>
+    <displayname>OutputNode implementation</displayname>
+    <displayname xml:lang="ru">Выходной узел данных</displayname>
+    <displaycategory>EthoStudio Classes</displaycategory>
+    <displaycategory xml:lang="ru">Классы EthoStudio</displaycategory>
+    <files>
+        <file source="outputnode.cpp" target="%ClassName:l%.%CppSourceSuffix%" openeditor="true"/>
+        <file source="outputnode.h" target="%ClassName:l%.%CppHeaderSuffix%" openeditor="true"/>
+    </files>
+    <!-- Create parameter wizard page -->
+    <fieldpagetitle>OutputNode parameters</fieldpagetitle>
+    <fieldpagetitle xml:lang="ru">Параметры источника данных</fieldpagetitle>
+   <fields>
+        <field name="ClassName">
+            <fieldcontrol class="QLineEdit" validator="^[a-zA-Z0-9_]+$" defaulttext="MyOutputNode" />
+            <fielddescription>Class name:</fielddescription>
+	    <fielddescription xml:lang="ru">Название класса:</fielddescription>
+        </field>
+        <field name="Datatype">
+            <fieldcontrol class="QComboBox" combochoices="QString,int" defaultindex="0" />
+            <fielddescription>Datatype:</fielddescription>
+	    <fielddescription xml:lang="ru">Тип данных:</fielddescription>
+        </field>
+    </fields>
+</wizard>

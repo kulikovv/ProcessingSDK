@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<graph version="2" class="synch::LeaderSynch">
+ <property type="QString" value="visual::ImageView_4" name="objectName"/>
+ <property type="bool" value="false" name="asynch"/>
+ <property type="bool" value="true" name="enable"/>
+ <property type="int" value="0" name="disabledBehaviour"/>
+ <property type="bool" value="true" name="allowCyclic"/>
+ <property type="double" value="30" name="fps"/>
+ <property type="long" value="0" name="length"/>
+ <property type="bool" value="false" name="loop"/>
+ <libs>
+  <library>KinectLibrary.dll</library>
+  <library>TrackingColoredObjects.dll</library>
+  <library>sdk.dll</library>
+ </libs>
+ <node class="KinectOpenNI" id="1">
+  <property type="QString" value="kinect" name="objectName"/>
+  <property type="bool" value="false" name="asynch"/>
+  <property type="bool" value="true" name="enable"/>
+  <property type="int" value="0" name="disabledBehaviour"/>
+  <property type="QString" value="" name="url"/>
+  <property type="double" value="30" name="fps"/>
+  <property type="int" value="640" name="width"/>
+  <property type="int" value="480" name="height"/>
+  <property type="int" value="0" name="deviceid"/>
+  <property type="QString" value="A00362A19285043A" name="Serial"/>
+  <decoration x="-2" y="-93"/>
+  <connections>
+   <connection from="kinect@" to="Plane@"/>
+  </connections>
+ </node>
+ <node class="KinectPlaneBinaryNode" id="2">
+  <property type="QString" value="Plane" name="objectName"/>
+  <property type="bool" value="false" name="asynch"/>
+  <property type="bool" value="true" name="enable"/>
+  <property type="int" value="1" name="disabledBehaviour"/>
+  <property type="QString" value="" name="maskUrl"/>
+  <property type="bool" value="false" name="inverted"/>
+  <property type="int" value="-1" name="threshold"/>
+  <property type="double" value="0.0500000007450581" name="minMeters"/>
+  <property type="bool" value="false" name="binRgb"/>
+  <decoration x="0" y="1"/>
+  <connections>
+   <connection from="Plane@" to="Detect@"/>
+  </connections>
+ </node>
+ <node class="ColorDetector" id="3">
+  <property type="QString" value="Detect" name="objectName"/>
+  <property type="bool" value="false" name="asynch"/>
+  <property type="bool" value="true" name="enable"/>
+  <property type="int" value="1" name="disabledBehaviour"/>
+  <property type="int" value="500" name="minpoints"/>
+  <decoration x="-7" y="107"/>
+  <connections/>
+ </node>
+</graph>

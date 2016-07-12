@@ -1,0 +1,37 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/2.png</file>
+        <file>images/7.png</file>
+        <file>images/27.png</file>
+        <file>images/91.png</file>
+        <file>images/98.png</file>
+        <file>images/118.png</file>
+        <file>images/119.png</file>
+        <file>images/125.png</file>
+        <file>images/link.png</file>
+        <file>images/link_break.png</file>
+        <file>images/reset.png</file>
+        <file>images/new.png</file>
+        <file alias="bg2">images/background2.png</file>
+        <file alias="bg3">images/background3.png</file>
+        <file alias="script">images/script.png</file>
+        <file alias="background">images/background4.png</file>
+        <file alias="step">images/step.png</file>
+    </qresource>
+    <qresource prefix="/templates">
+        <file>templates/header.txt</file>
+        <file>templates/source.txt</file>
+    </qresource>
+    <qresource prefix="/scripts">
+        <file alias="output">images/2.png</file>
+        <file alias="run">images/98.png</file>
+        <file alias="remove">images/118.png</file>
+        <file alias="new">images/new.png</file>
+        <file alias="abort">images/Abort.png</file>
+        <file alias="clear">images/clear.png</file>
+        <file alias="save">images/7.png</file>
+    </qresource>
+    <qresource prefix="/sdk/visual">
+        <file alias="ImageVisualNode">images/27.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/graphs">
+        <file alias="track">schemas/track.xml</file>
+    </qresource>
+</RCC>

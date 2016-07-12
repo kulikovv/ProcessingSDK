@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<wizard version="1" kind="class" id="A.SourceNode" category="B.EthoStudioClasses">
+    <description>Creates a SourceNode implementation.</description>
+    <description xml:lang="ru">Создать источник данных имплементирующий ourceNode.</description>
+    <icon>source.png</icon>
+    <displayname>SourceNode implementation</displayname>
+    <displayname xml:lang="ru">Источник данных</displayname>
+    <displaycategory>EthoStudio Classes</displaycategory>
+    <displaycategory xml:lang="ru">Классы EthoStudio</displaycategory>
+    <files>
+        <file source="sourcenode.cpp" target="%ClassName:l%.%CppSourceSuffix%" openeditor="true"/>
+        <file source="sourcenode.h" target="%ClassName:l%.%CppHeaderSuffix%" openeditor="true"/>
+    </files>
+    <!-- Create parameter wizard page -->
+    <fieldpagetitle>SourceNode parameters</fieldpagetitle>
+    <fieldpagetitle xml:lang="ru">Параметры источника данных</fieldpagetitle>
+   <fields>
+        <field name="ClassName">
+            <fieldcontrol class="QLineEdit" validator="^[a-zA-Z0-9_]+$" defaulttext="MySourceNode" />
+            <fielddescription>Class name:</fielddescription>
+	    <fielddescription xml:lang="ru">Название класса:</fielddescription>
+        </field>
+        <field name="Datatype">
+            <fieldcontrol class="QComboBox" combochoices="SourceNode,SingleCameraNode,StereoCameraNode,ImageNode,VideoSource" defaultindex="0" />
+            <fielddescription>Datatype:</fielddescription>
+	    <fielddescription xml:lang="ru">Тип данных:</fielddescription>
+        </field>
+    </fields>
+</wizard>

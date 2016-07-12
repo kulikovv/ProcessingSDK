@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<wizard version="1" kind="class" id="A.SourceNode" category="B.EthoStudioClasses">
+    <description>Creates a VisualNode implementation.</description>
+    <description xml:lang="ru">Создать визуализатор данных имплементирующий VisualNode.</description>
+    <icon>visual.png</icon>
+    <displayname>VisualNode implementation</displayname>
+    <displayname xml:lang="ru">Узел визуализации данных</displayname>
+    <displaycategory>EthoStudio Classes</displaycategory>
+    <displaycategory xml:lang="ru">Классы EthoStudio</displaycategory>
+    <files>
+        <file source="visual.cpp" target="%ClassName:l%.%CppSourceSuffix%" openeditor="true"/>
+        <file source="visual.h" target="%ClassName:l%.%CppHeaderSuffix%" openeditor="true"/>
+    </files>
+    <!-- Create parameter wizard page -->
+    <fieldpagetitle>VisualNode parameters</fieldpagetitle>
+    <fieldpagetitle xml:lang="ru">Параметры визуализатора данных</fieldpagetitle>
+   <fields>
+        <field name="ClassName">
+            <fieldcontrol class="QLineEdit" validator="^[a-zA-Z0-9_]+$" defaulttext="MyOutputNode" />
+            <fielddescription>Class name:</fielddescription>
+	    <fielddescription xml:lang="ru">Название класса:</fielddescription>
+        </field>
+    </fields>
+</wizard>

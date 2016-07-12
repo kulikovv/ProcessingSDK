@@ -1,0 +1,19 @@
+#ifndef %ClassName:u%_H
+#define %ClassName:u%_H
+
+#include <Core/Synch.h>
+using namespace core;
+
+class %ClassName:c%:public QObject
+{
+    public:
+	%ClassName:c%();
+	~%ClassName:c%();
+    public slots:
+	void start();
+	void stop();
+    private:
+        Synch* _graph;
+}
+
+#endif
