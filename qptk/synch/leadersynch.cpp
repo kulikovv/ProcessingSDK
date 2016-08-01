@@ -28,7 +28,7 @@ void LeaderSynch::seek(unsigned long pos)
     {
         foreach(SourceNode* node,_sources)
         {
-            node->get(pos);
+            node->receive(esp::init<int>(new int,pos));
         }
         _current = pos;
     }

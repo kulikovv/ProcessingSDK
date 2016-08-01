@@ -76,9 +76,13 @@ void UIAutoFitter::fitUI()
 
                        QTabWidget* tab = qobject_cast<QTabWidget*>(w);
                        if(!tab){
-                           QHBoxLayout* lay = new QHBoxLayout();
-                           delete w->layout();
-                           w->setLayout(lay);
+                           QLayout* lay = w->layout();
+                           if(0==lay)
+                           {
+                                lay= new QHBoxLayout();
+                                w->setLayout(lay);
+                           }
+
                            lay->addWidget(subw);
                        }else{
 						   

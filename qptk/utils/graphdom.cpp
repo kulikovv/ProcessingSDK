@@ -115,15 +115,13 @@ bool readLibraries(QDomElement el)
     QDomNodeList libraryHeaders = el.elementsByTagName("libs");
     for(int i=0;i<libraryHeaders.count();i++)
     {
-      //  INFO("Library header found");
         //read each node
         QDomElement headerElement = libraryHeaders.at(i).toElement();
         QDomNodeList libraries = headerElement.elementsByTagName("library");
         for(int i=0;i<libraries.count();i++)
         {
 
-            QDomElement librarie = libraries.at(i).toElement();
-           // INFO("Librarie->"+librarie.text());
+            QDomElement librarie = libraries.at(i).toElement();        
             NodeLibrary* lib = loadNodeLibrary(librarie.text());
             if(!lib)
             {
@@ -145,6 +143,7 @@ bool readLibraries(QDomElement el)
 base::Node* readNode(QDomElement el,QList<QPair<QString,QString> > &connections,NodeDecoration& dec)
 {
     QString classname = el.attribute("class");
+
     //int id = el.attribute("id").toInt();
     readLibraries(el);
 
@@ -160,6 +159,7 @@ base::Node* readNode(QDomElement el,QList<QPair<QString,QString> > &connections,
     QDomNodeList decorationList =el.elementsByTagName("decoration");
     for(int i=0;i<pptyList.count();i++)
     {
+
         //read all node properies
         QDomElement ppty = pptyList.at(i).toElement();
 
@@ -195,6 +195,7 @@ base::Node* readNode(QDomElement el,QList<QPair<QString,QString> > &connections,
         }
     }
     for(int i=0;i<decorationList.count();i++){
+
         QDomElement eldec = decorationList.at(i).toElement();
         dec.place = QPoint(eldec.attribute("x").toInt(),eldec.attribute("y").toInt());
         dec.base = false;
@@ -347,6 +348,7 @@ synch::Synch* loadGraphFormat1(QDomElement docElem,QMap<QString, NodeDecoration>
  */
 synch::Synch* loadGraphFormat2(QDomElement docElem,QMap<QString, NodeDecoration> &decor)
 {
+
     QList<QPair<QString,QString> > connectionBase;
     //read the graph settings and test if it is a graph
     NodeDecoration dec;
@@ -366,6 +368,7 @@ synch::Synch* loadGraphFormat2(QDomElement docElem,QMap<QString, NodeDecoration>
     QDomNodeList subGraphList = docElem.elementsByTagName("subgraph");
     for(int i=0;i<subGraphList.count();i++)
     {
+
         //read subgraph
         QDomElement el = subGraphList.at(i).toElement();
         base::Graph* subgraph = GraphDom::loadGraph(el.attribute("path"),decor);
@@ -400,6 +403,7 @@ synch::Synch* loadGraphFormat2(QDomElement docElem,QMap<QString, NodeDecoration>
     QDomNodeList nodesList = docElem.elementsByTagName("node");
     for(int i=0;i<nodesList.count();i++)
     {
+
         //read each node
         QDomElement el = nodesList.at(i).toElement();
         base::Node* node = readNode(el,connectionBase,dec);
@@ -600,12 +604,9 @@ QString GraphDom::saveGraphMemory(synch::Synch* graph,QMap<QString,NodeDecoratio
         libs << graph->library();
         addElement( doc, libsnode, "library", graph->library() );
     }
-    //qDebug() << "Current path"<<QDir::current().path();
-
-
 
     QList<Graph::Connection> conn = graph->getConnections();
-    qDebug() << conn;
+
     foreach(base::Node* nd,graph->nodes())
     {
         if(0!=qobject_cast<base::Graph*>(nd))
