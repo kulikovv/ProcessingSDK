@@ -4,15 +4,17 @@ using namespace workflow;
 Adapter::Adapter(QObject *parent) :
     WorkflowNode(parent)
 {
-    _selected = 0;
+    _selected = 1000;
 }
 
 void Adapter::receiveProcess(esp data)
 {
-   // qDebug()<< "Adapter::receiveProcess" ;
-    _nodes[_selected]->setEnable(true);
-    _nodes[_selected]->receive(data);
-    _mem = data;
+    qDebug()<< "Adapter::receiveProcess" << _selected  ;
+    if(_selected>=0&&_selected<_nodes.count()){
+        _nodes[_selected]->setEnable(true);
+        _nodes[_selected]->receive(data);
+        _mem = data;
+    }
 }
 
 int Adapter::selected() const
@@ -22,12 +24,13 @@ int Adapter::selected() const
 
 void Adapter::setSelected(int x)
 {
-    if(x>=0&&x<_nodes.count())
-    {
+   // if(x>=0&&x<_nodes.count())
+  //  {
         _selected = x;
         receiveProcess(_mem);
-    }
+ //   }
 }
+
 void Adapter::addNode(base::Node* node)
 {
 	WorkflowNode::addNode(node);
