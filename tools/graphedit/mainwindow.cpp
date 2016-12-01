@@ -154,7 +154,7 @@ MainWindow::MainWindow(QWidget *parent) :
     _filename = "";
     this->setWindowTitle(tr("GraphEdit - [Untitled]"));
 
-    QSettings settings("Sibrain", QApplication::applicationName());
+    QSettings settings("AISoftPro", QApplication::applicationName());
     _lastdir = settings.value("LastDir").toString();
     settings.beginGroup("Files");
     _fileList = settings.value("FileList").toStringList();
@@ -196,7 +196,7 @@ void MainWindow::onWidgetPreview(QWidget* preview)
 
 MainWindow::~MainWindow()
 {
-    QSettings settings("Sibrain", QApplication::applicationName());
+    QSettings settings("AISoftPro", QApplication::applicationName());
     settings.beginGroup("Files");
     settings.setValue("FileList",_fileList);
     settings.endGroup();
@@ -223,7 +223,7 @@ void MainWindow::on_actionOpen_triggered()
     if(!name.isEmpty())
     {
         _lastdir = QFileInfo(name).dir().path();
-        QSettings settings("Sibrain", QApplication::applicationName());
+        QSettings settings("AISoftPro", QApplication::applicationName());
         settings.setValue("LastDir",_lastdir);
     }
     loadFile(name);
@@ -336,7 +336,7 @@ void MainWindow::on_actionSaveAs_triggered()
     if(!name.isEmpty())
     {
         _lastdir = QFileInfo(name).dir().path();
-        QSettings settings("Sibrain", QApplication::applicationName());
+        QSettings settings("AISoftPro", QApplication::applicationName());
         settings.setValue("LastDir",_lastdir);
     }
     saveFile(name);
@@ -366,7 +366,7 @@ void MainWindow::on_addBaseGraph_triggered()
     if(!name.isEmpty())
     {
         _lastdir = QFileInfo(name).dir().path();
-        QSettings settings("Sibrain", QApplication::applicationName());
+        QSettings settings("AISoftPro", QApplication::applicationName());
         settings.setValue("LastDir",_lastdir);
     }
 

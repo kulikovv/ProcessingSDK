@@ -3,7 +3,7 @@
 #ifndef WIN32_MSVC
 # include <stdint.h>
 #else
-# include "MSVC/stdint.h"
+# include <stdint.h>
 #endif // WIN32_MSVC
 #include "utils/logs.h"
 using namespace types;

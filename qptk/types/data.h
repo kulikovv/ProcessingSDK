@@ -8,6 +8,7 @@
 #include <stdexcept>
 #include <math.h>
 #include <cmath>
+#include <map>
 
 class QTextStream;
 

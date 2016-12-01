@@ -84,9 +84,9 @@ SOURCES += sdk.cpp \
     process/fpslistener.cpp \
     io/text/streamoutput.cpp \
     io/baseionode.cpp \
-    visual/ogl/glview.cpp \
-    visual/oglview.cpp \
-    visual/ogl/glcloudview.cpp \
+    #visual/ogl/glview.cpp \
+    #visual/oglview.cpp \
+    #visual/ogl/glcloudview.cpp \
     utils/graphdom.cpp \
     io/capture/videoinputcapture.cpp \
     types/callbackhook.cpp \
@@ -168,9 +168,9 @@ HEADERS += sdk.h\
     io/text/streamoutput.h \
     io/baseionode.h \
     types/general_tracking.h \
-    visual/ogl/glview.h \
-    visual/oglview.h \
-    visual/ogl/glcloudview.h \
+    #visual/ogl/glview.h \
+    #visual/oglview.h \
+    #visual/ogl/glcloudview.h \
     utils/graphdom.h \
     io/capture/videoinputcapture.h \
     types/callbackhook.h \

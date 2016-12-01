@@ -21,7 +21,7 @@
 //#include <visual/text/multiobjecttableview.h>
 #include <visual/zoomimageview.h>
 #include <visual/layoutnode.h>
-#include <visual/oglview.h>
+//#include <visual/oglview.h>
 #include <process/binarynode.h>
 #include <process/resizenode.h>
 #include <process/negative.h>
@@ -68,7 +68,7 @@ void Sdk::registrate(QString filename)
     REGISTER(visual::text::TableView)
    // REGISTER(visual::text::MultiObjectTableView)
     REGISTER(visual::LayoutNode)
-    REGISTER(visual::OglView)
+   // REGISTER(visual::OglView)
     REGISTER(process::BinaryNode)
     REGISTER(process::ResizeNode)
     REGISTER(process::Negative)
