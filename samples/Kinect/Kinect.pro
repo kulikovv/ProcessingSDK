@@ -6,7 +6,7 @@ TEMPLATE = lib
 # add openni - to use openni
 # add openni2 - to compile with MS Kinect SDK
 # for readonly freenect (*.kin) files use no keys!!!
-CONFIG += plugin opencv openni2
+CONFIG += plugin opencv ffmpeg
 
 DEFINES += KINECTLIBRARY_LIBRARY
 
@@ -135,13 +135,17 @@ unix:{
         LIBS += -lusb-1.0
 }
 
-
-VIDEO_IO_CONFIG *= shared use_headers use_libs
-OPENCV_CONFIG *= shared use_headers use_libs
-
-NV_PRI_DIR = "C:/nv/projects/qmake"
-include(../VideoIO/qmake/_VideoIO.pri)
-DEPENDPATH *= "$${VIDEO_IO_INCLUDE_DIR}"
-LIBS += $$VIDEO_IO_LIBS
-LIBS += $$opencv_link(highgui imgproc core)
-LIBS += $$NV_COMMON_LIBS
+ffmpeg:{
+    LIBFFMPEGDIR = "C:/Develop/Cpp/Libs/ffmpeg-1.2/install/w64/gcc47/release"
+    INCLUDEPATH += $${LIBFFMPEGDIR}/include
+    LIBS += -L$${LIBFFMPEGDIR}/lib/vc10\
+            -lavcodec\
+            -lavdevice\
+            -lavfilter\
+            -lavformat\
+            -lavutil\
+            -lswresample\
+            -lswscale
+}
+include(../../qptk/config.pri)#include qptk config file
+include(VideoIO/VideoIO.pri)

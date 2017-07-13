@@ -279,12 +279,12 @@ bool Graph::link(Node *in,Node *out)
     {
         if(this==in)
         {
-            this->connect(in,SIGNAL(sendInside(esp)),out,SLOT(receive(esp)));
+            this->connect(in,SIGNAL(sendInside(esp)),out,SLOT(receive(esp)),Qt::UniqueConnection);
           //  add(out);
         }
         if(this==out)
         {
-            this->connect(in,SIGNAL(send(esp)),out,SIGNAL(send(esp)));
+            this->connect(in,SIGNAL(send(esp)),out,SIGNAL(send(esp)),Qt::UniqueConnection);
          //   add(in);
         }        
     }else{
@@ -292,7 +292,7 @@ bool Graph::link(Node *in,Node *out)
          * send and recieve are connected using queued connection to make sure, that processing is finished before sending results
          */
 
-        connect(in,SIGNAL(send(esp)),out,SLOT(receive(esp)));//,Qt::QueuedConnection);
+        connect(in,SIGNAL(send(esp)),out,SLOT(receive(esp)),Qt::UniqueConnection);//,Qt::QueuedConnection);
 
      //   add(in);
      //   add(out);
@@ -300,7 +300,7 @@ bool Graph::link(Node *in,Node *out)
     in->onConnected();
     return true;
 }
-
+//31 + 15 + 12,5
 bool Graph::checkCyclic(Node* in,Node* out)
 {
     if(_allowCyclic)

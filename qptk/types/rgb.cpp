@@ -108,33 +108,50 @@ cv::Mat Rgb::createColor(const cv::Mat &x)
     return color;
 }
 
+void safeCopyPixels(QImage* pImage,cv::Mat color){
+    if(pImage->bytesPerLine()!=color.step)
+    {
+        //Копирование по строкам
+        for(int i=0;i<pImage->height();i++)
+        {
+            memcpy(pImage->scanLine(i),color.ptr(i),color.cols*3);
+        }
+    }else{
+        //Копируем все и  сразу
+        memcpy(pImage->bits(),color.data,color.cols*color.rows*3);
+    }
+}
 
 QImage* Rgb::createQImage(QImage* qim)
 {
     if(!_mat.data)
-     return 0;
+        return 0;
     cv::Mat color;
     //Если один канал у изображения
     color = createColor(_mat);
 
+
     QImage*  pImage=0;
     if(0==qim)
     {
-        pImage = new QImage((const uchar *) color.data,color.cols,color.rows,color.step,QImage::Format_RGB888);
 
+        pImage = new QImage(QSize(color.cols,color.rows),QImage::Format_RGB888);
+        safeCopyPixels(pImage,color);
     }else{
+
         if((qim->width()==color.cols)&&(qim->height()==color.rows))
         {
             pImage = qim;
-            memcpy(pImage->bits(),color.data,color.cols*color.rows*3);
+            safeCopyPixels(pImage,color);
         }else{
             delete qim;
-            pImage = new QImage((const uchar *) color.data,color.cols,color.rows,color.step,QImage::Format_RGB888);
+            pImage = new QImage(QSize(color.cols,color.rows),QImage::Format_RGB888);
+            safeCopyPixels(pImage,color);
         }
     }
 
 
-    pImage->bits();
+    //pImage->bits();
    // QImage dest((const uchar *) temp.data, temp.cols, temp.rows, temp.step, QImage::Format_RGB888);
   //  dest.bits(); // enforce deep copy, see documentation
 

@@ -10,6 +10,7 @@ TEMPLATE=subdirs
 
 SUBDIRS += \
     TrackingColoredObjects \
+    Kinect \
     HumanTracker #\
    # PointGray
 

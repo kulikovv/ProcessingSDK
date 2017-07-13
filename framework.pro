@@ -15,8 +15,23 @@ TEMPLATE=subdirs
 #}
 
 SUBDIRS=  qptk/sdk.pro\
-          tools\
-          samples
+          tools
+
+win32-msvc* {
+    !contains(QMAKE_TARGET.arch, x86_64) {
+            message("x86 build")
+
+            ## Windows x86 (32bit) specific build here
+
+
+        } else {
+            message("x86_64 build")
+
+            ## Windows x64 (64bit) specific build here
+            SUBDIRS +=samples
+        }
+
+}
 
 include(qptk/config.pri)
 TRANSLATIONS    = framework_ru.ts
