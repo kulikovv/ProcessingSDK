@@ -6,7 +6,7 @@ TEMPLATE = lib
 # add openni - to use openni
 # add openni2 - to compile with MS Kinect SDK
 # for readonly freenect (*.kin) files use no keys!!!
-CONFIG += plugin opencv ffmpeg
+CONFIG += plugin opencv ffmpeg openni2
 
 DEFINES += KINECTLIBRARY_LIBRARY
 
@@ -23,7 +23,7 @@ HEADERS += kinectlibrary.h\
     kinectreader.h \
     rgbdkinect.h
 
-include(C:/Develop/Framework/qptk/config.pri)
+#include(C:/Develop/Framework/qptk/config.pri)
 
 freenect:{
     message("Building with Freenect driver")
@@ -136,7 +136,22 @@ unix:{
 }
 
 ffmpeg:{
-    LIBFFMPEGDIR = "C:/Develop/Cpp/Libs/ffmpeg-1.2/install/w64/gcc47/release"
+
+    win32:{
+        !contains(QMAKE_TARGET.arch, x86_64) {
+            message("x86 build")
+
+            ## Windows x86 (32bit) specific build here
+            LIBFFMPEGDIR = "C:/Develop/Cpp/Libs/ffmpeg-1.2/install/w32/gcc47/release"
+
+        } else {
+            message("x86_64 build")
+
+            ## Windows x64 (64bit) specific build here
+            LIBFFMPEGDIR = "C:/Develop/Cpp/Libs/ffmpeg-1.2/install/w64/gcc47/release"
+        }
+    }
+
     INCLUDEPATH += $${LIBFFMPEGDIR}/include
     LIBS += -L$${LIBFFMPEGDIR}/lib/vc10\
             -lavcodec\

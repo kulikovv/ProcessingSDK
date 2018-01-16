@@ -22,7 +22,7 @@ win32-msvc* {
             message("x86 build")
 
             ## Windows x86 (32bit) specific build here
-
+            SUBDIRS +=samples
 
         } else {
             message("x86_64 build")

@@ -42,10 +42,10 @@ Logger* Logger::install()
 }
 void Logger::writeInnerLog(QString msg)
 {
-    _log->open(QIODevice::WriteOnly | QIODevice::Append);
+  /*  _log->open(QIODevice::WriteOnly | QIODevice::Append);
     QTextStream ts(_log);
     ts << msg << endl;
-    _log->close();
+    _log->close();*/
 }
 
 void Logger::writeLog(QString msg)

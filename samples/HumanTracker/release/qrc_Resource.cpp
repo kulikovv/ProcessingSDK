@@ -1,13 +1,13 @@
 /****************************************************************************
 ** Resource object code
 **
-** Created by: The Resource Compiler for Qt version 5.4.0
+** Created by: The Resource Compiler for Qt version 5.9.1
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
 static const unsigned char qt_resource_data[] = {
-  // C:/Develop/framework/samples/HumanTracker/schemas/track.xml
+  // C:/Develop/Cpp/ProcessingSDK/samples/HumanTracker/schemas/track.xml
   0x0,0x0,0x2,0x5d,
   0x0,
   0x0,0x9,0x79,0x78,0x9c,0xdd,0x96,0x4d,0x73,0xda,0x30,0x10,0x86,0xef,0xfc,0xa,
@@ -68,10 +68,13 @@ static const unsigned char qt_resource_name[] = {
 static const unsigned char qt_resource_struct[] = {
   // :
   0x0,0x0,0x0,0x0,0x0,0x2,0x0,0x0,0x0,0x1,0x0,0x0,0x0,0x1,
+0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,
   // :/graphs
   0x0,0x0,0x0,0x0,0x0,0x2,0x0,0x0,0x0,0x1,0x0,0x0,0x0,0x2,
+0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,
   // :/graphs/track
   0x0,0x0,0x0,0x12,0x0,0x1,0x0,0x0,0x0,0x1,0x0,0x0,0x0,0x0,
+0x0,0x0,0x1,0x4b,0x59,0x26,0x73,0xc2,
 
 };
 
@@ -103,7 +106,7 @@ int QT_RCC_MANGLE_NAMESPACE(qInitResources_Resource)();
 int QT_RCC_MANGLE_NAMESPACE(qInitResources_Resource)()
 {
     QT_RCC_PREPEND_NAMESPACE(qRegisterResourceData)
-        (0x01, qt_resource_struct, qt_resource_name, qt_resource_data);
+        (0x2, qt_resource_struct, qt_resource_name, qt_resource_data);
     return 1;
 }
 
@@ -111,7 +114,7 @@ int QT_RCC_MANGLE_NAMESPACE(qCleanupResources_Resource)();
 int QT_RCC_MANGLE_NAMESPACE(qCleanupResources_Resource)()
 {
     QT_RCC_PREPEND_NAMESPACE(qUnregisterResourceData)
-       (0x01, qt_resource_struct, qt_resource_name, qt_resource_data);
+       (0x2, qt_resource_struct, qt_resource_name, qt_resource_data);
     return 1;
 }
 
